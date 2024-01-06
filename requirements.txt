@@ -1,0 +1,6 @@
+astunparse==1.6.3
+graphviz==0.20.1
+Pillow==10.0.0
+pygraphviz==1.11
+six==1.16.0
+tk==0.1.0

@@ -1,0 +1,146 @@
+{
+	"_type": "Project",
+	"_id": "AAAAAAFF+h6SjaM2Hec=",
+	"name": "Assignment 2",
+	"ownedElements": [
+		{
+			"_type": "ERDDataModel",
+			"_id": "AAAAAAGJ3s7V+ETBV9M=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Model 1.0",
+			"ownedElements": [
+				{
+					"_type": "ERDDiagram",
+					"_id": "AAAAAAGJ3s7V+ETCFmY=",
+					"_parent": {
+						"$ref": "AAAAAAGJ3s7V+ETBV9M="
+					},
+					"name": "NIT Durgapur ER Diagram",
+					"ownedViews": [
+						{
+							"_type": "ERDEntityView",
+							"_id": "AAAAAAGJ3tCEIkTSqao=",
+							"_parent": {
+								"$ref": "AAAAAAGJ3s7V+ETCFmY="
+							},
+							"model": {
+								"$ref": "AAAAAAGJ3tCEIUTQxns="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAGJ3tCEIkTT6Xw=",
+									"_parent": {
+										"$ref": "AAAAAAGJ3tCEIkTSqao="
+									},
+									"font": "Arial;13;1",
+									"left": 208,
+									"top": 277,
+									"width": 198.80322265625,
+									"height": 13,
+									"text": "System Administrator"
+								},
+								{
+									"_type": "ERDColumnCompartmentView",
+									"_id": "AAAAAAGJ3tCEIkTU9PU=",
+									"_parent": {
+										"$ref": "AAAAAAGJ3tCEIkTSqao="
+									},
+									"model": {
+										"$ref": "AAAAAAGJ3tCEIUTQxns="
+									},
+									"subViews": [
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAGJ3tNWCUTh7rA=",
+											"_parent": {
+												"$ref": "AAAAAAGJ3tCEIkTU9PU="
+											},
+											"model": {
+												"$ref": "AAAAAAGJ3tNV/kTe2IM="
+											},
+											"font": "Arial;13;0",
+											"left": 213,
+											"top": 300,
+											"width": 188.80322265625,
+											"height": 13
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAGJ3tidnUTtsF0=",
+											"_parent": {
+												"$ref": "AAAAAAGJ3tCEIkTU9PU="
+											},
+											"model": {
+												"$ref": "AAAAAAGJ3tidikTq7Yg="
+											},
+											"font": "Arial;13;0",
+											"left": 213,
+											"top": 315,
+											"width": 188.80322265625,
+											"height": 13
+										}
+									],
+									"font": "Arial;13;0",
+									"left": 208,
+									"top": 295,
+									"width": 198.80322265625,
+									"height": 38
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 208,
+							"top": 272,
+							"width": 198.80322265625,
+							"height": 61,
+							"nameLabel": {
+								"$ref": "AAAAAAGJ3tCEIkTT6Xw="
+							},
+							"columnCompartment": {
+								"$ref": "AAAAAAGJ3tCEIkTU9PU="
+							}
+						}
+					]
+				},
+				{
+					"_type": "ERDEntity",
+					"_id": "AAAAAAGJ3tCEIUTQxns=",
+					"_parent": {
+						"$ref": "AAAAAAGJ3s7V+ETBV9M="
+					},
+					"name": "System Administrator",
+					"columns": [
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAGJ3tNV/kTe2IM=",
+							"_parent": {
+								"$ref": "AAAAAAGJ3tCEIUTQxns="
+							},
+							"name": "system_id",
+							"type": "VARCHAR",
+							"length": 0,
+							"primaryKey": true,
+							"unique": true
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAGJ3tidikTq7Yg=",
+							"_parent": {
+								"$ref": "AAAAAAGJ3tCEIUTQxns="
+							},
+							"name": "password",
+							"type": "VARCHAR",
+							"length": "10"
+						}
+					]
+				}
+			]
+		}
+	],
+	"documentation": "This is the project made by ",
+	"author": "Ritabrata Das",
+	"company": "NIT Durgapur",
+	"version": "1.0"
+}
