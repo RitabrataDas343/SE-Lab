@@ -1,0 +1,59 @@
+SET FOREIGN_KEY_CHECKS = 0;
+DROP TABLE IF EXISTS `System Administrator`;
+DROP TABLE IF EXISTS `Student`;
+DROP TABLE IF EXISTS `Pre-Existing Database`;
+DROP TABLE IF EXISTS `Academic Portal`;
+DROP TABLE IF EXISTS `Student`;
+SET FOREIGN_KEY_CHECKS = 1;
+
+CREATE TABLE `System Administrator` (
+    `System ID` VARCHAR(10) NOT NULL,
+    `Password` VARCHAR(10) NOT NULL,
+    PRIMARY KEY (`System ID`),
+    UNIQUE (`System ID`)
+);
+
+CREATE TABLE `Student` (
+);
+
+CREATE TABLE `Pre-Existing Database` (
+    `Registration ID` VARCHAR(10) NOT NULL,
+    `10th marks` INTEGER(3) NOT NULL,
+    `12th marks` INTEGER(3) NOT NULL,
+    `College Marksheets` INTEGER(3) NOT NULL,
+    `Birth Certificate` DATETIME NOT NULL,
+    `Migration Certificate` DATETIME NOT NULL,
+    `Admission Details` VARCHAR(255) NOT NULL,
+    `Bonafide Certificate` VARCHAR(255) NOT NULL,
+    `No Dues Certificate` VARCHAR(255) NOT NULL,
+    `Registration Flag` BOOLEAN NOT NULL,
+    `Student Logs` VARCHAR(255) NOT NULL,
+    PRIMARY KEY (`Registration ID`),
+    UNIQUE (`Registration ID`, `Birth Certificate`, `Migration Certificate`, `Admission Details`, `Bonafide Certificate`)
+);
+
+CREATE TABLE `Academic Portal` (
+    `Registration ID` VARCHAR(10) NOT NULL,
+    `Student Copy` VARCHAR(255) NOT NULL,
+    PRIMARY KEY (`Registration ID`)
+);
+
+CREATE TABLE `Student` (
+    `Registration ID` VARCHAR(10) NOT NULL,
+    `Roll Number` VARCHAR(6) NOT NULL,
+    `First Name` VARCHAR(100) NOT NULL,
+    `Last Name` VARCHAR(100) NOT NULL,
+    `Date of Birth` DATETIME NOT NULL,
+    `Email` VARCHAR(100) NOT NULL,
+    `Mobile Number` NUMERIC(15) NOT NULL,
+    `Department ID` VARCHAR(12) NOT NULL,
+    `Department Name` VARCHAR(255) NOT NULL,
+    `Course` VARCHAR(255) NOT NULL,
+    `Semester` INTEGER(1) NOT NULL,
+    `CGPA` FLOAT(3) NOT NULL,
+    `Subjects` VARCHAR(255) NOT NULL,
+    PRIMARY KEY (`Registration ID`, `Roll Number`),
+    UNIQUE (`Registration ID`, `Roll Number`, `Email`, `Mobile Number`)
+);
+
+ALTER TABLE `Academic Portal` ADD FOREIGN KEY (`Registration ID`) REFERENCES `Pre-Existing Database`(`Registration ID`);

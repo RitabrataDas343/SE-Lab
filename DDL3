@@ -1,0 +1,77 @@
+SET FOREIGN_KEY_CHECKS = 0;
+DROP TABLE IF EXISTS `Customers`;
+DROP TABLE IF EXISTS `Menu Items`;
+DROP TABLE IF EXISTS `Staff`;
+DROP TABLE IF EXISTS `Order Items`;
+DROP TABLE IF EXISTS `Delivery Status`;
+DROP TABLE IF EXISTS `Orders`;
+DROP TABLE IF EXISTS `System Administrator`;
+SET FOREIGN_KEY_CHECKS = 1;
+
+CREATE TABLE `Customers` (
+    `Customer ID` VARCHAR(10) NOT NULL,
+    `First Name` VARCHAR(100) NOT NULL,
+    `Last Name` VARCHAR(100) NOT NULL,
+    `Email` VARCHAR(100) NOT NULL,
+    `Phone Number` NUMERIC(15) NOT NULL,
+    `Address` VARCHAR(255) NOT NULL,
+    `Number of Orders` BIGINT(255) NOT NULL,
+    PRIMARY KEY (`Customer ID`),
+    UNIQUE (`Email`, `Phone Number`)
+);
+
+CREATE TABLE `Menu Items` (
+    `Item ID` VARCHAR(30) NOT NULL,
+    `Name` VARCHAR(100) NOT NULL,
+    `Description` VARCHAR(255) NOT NULL,
+    `Price` BIGINT(255) NOT NULL,
+    PRIMARY KEY (`Item ID`)
+);
+
+CREATE TABLE `Staff` (
+    `Staff ID` VARCHAR(20) NOT NULL,
+    `First Name` VARCHAR(100) NOT NULL,
+    `Last Name` VARCHAR(100) NOT NULL,
+    `Position` VARCHAR(30) NOT NULL,
+    `Phone Number` NUMERIC(15) NOT NULL,
+    `Salary` BIGINT(255) NOT NULL,
+    PRIMARY KEY (`Staff ID`),
+    UNIQUE (`Phone Number`)
+);
+
+CREATE TABLE `Order Items` (
+    `Order Item ID` VARCHAR(20) NOT NULL,
+    `Order ID` VARCHAR(20) NOT NULL,
+    `Item ID` VARCHAR(30) NOT NULL,
+    `Quantity` INTEGER(30) NOT NULL,
+    PRIMARY KEY (`Order Item ID`)
+);
+
+CREATE TABLE `Delivery Status` (
+    `Status ID` VARCHAR(20) NOT NULL,
+    `Order ID` VARCHAR(20) NOT NULL,
+    `Status` BOOLEAN NOT NULL,
+    PRIMARY KEY (`Status ID`)
+);
+
+CREATE TABLE `Orders` (
+    `Order ID` VARCHAR(20) NOT NULL,
+    `Customer ID` VARCHAR(10) NOT NULL,
+    `Staff ID` VARCHAR(20) NOT NULL,
+    `Order Date` DATETIME NOT NULL,
+    `Total Amount` BIGINT(255) NOT NULL,
+    `Delivery Address` VARCHAR(255) NOT NULL,
+    PRIMARY KEY (`Order ID`)
+);
+
+CREATE TABLE `System Administrator` (
+    `System ID` VARCHAR(10) NOT NULL,
+    `Password` VARCHAR(255) NOT NULL,
+    PRIMARY KEY (`System ID`)
+);
+
+ALTER TABLE `Order Items` ADD FOREIGN KEY (`Item ID`) REFERENCES `Menu Items`(`Item ID`);
+ALTER TABLE `Order Items` ADD FOREIGN KEY (`Order ID`) REFERENCES `Orders`(`Order ID`);
+ALTER TABLE `Delivery Status` ADD FOREIGN KEY (`Order ID`) REFERENCES `Orders`(`Order ID`);
+ALTER TABLE `Orders` ADD FOREIGN KEY (`Customer ID`) REFERENCES `Customers`(`Customer ID`);
+ALTER TABLE `Orders` ADD FOREIGN KEY (`Staff ID`) REFERENCES `Staff`(`Staff ID`);
